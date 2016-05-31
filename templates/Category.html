@@ -1,0 +1,14 @@
+<category-menu></category-menu>
+
+<section class="container">
+    <div ng-controller="categoryController">
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">{{category.name}}</a></li>
+        </ol>
+    </div>
+    <bold>{{category.description}}</bold>
+    <product-list category="category" showpaging="true">
+
+    </product-list>
+</section>

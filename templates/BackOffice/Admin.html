@@ -1,0 +1,28 @@
+<div>
+    <div ng-controller="loginController">
+        <div class=" pull-right">
+            <b>Welcome {{AuthenticatedUser.username}}
+            </b>
+            <button ng-click="Logout()" type="button" class="btn btn-default">Logout</button>
+        </div>
+    </div>
+    <header class="page-header">
+        <h1 class="text-center">E-Store Back Office</h1>
+    </header>
+    <div id="tabs" ng-controller="TabsCtrl">
+        <ul class="nav nav-pills" role="tablist">
+            <li data-toggle="tab" ng-repeat="tab in tabs"
+                ng-class="{active:isActiveTab(tab.url)}"
+                ng-click="onClickTab(tab)"><a>{{tab.title}}</a>
+            </li>
+        </ul>
+        <br/>
+        <div id="mainView">
+            <div ng-include="currentTab"></div>
+        </div>
+    </div>
+
+    <a href="/" class="btn btn-primary pull-right">
+        Back to E-Store
+    </a>
+</div>

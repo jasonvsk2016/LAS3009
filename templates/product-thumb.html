@@ -1,0 +1,9 @@
+<div class="text-center">
+    <a ng-href="/ProductDetails/{{product.id}}">
+        <h4>{{product.name}}</h4>
+        <img ng-src="{{product.imageURL}}" class="thumbnail">
+        <h4>
+            <strong>{{product.price | currency:'€'}}</strong>
+        </h4>
+    </a>
+</div>

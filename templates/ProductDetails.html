@@ -1,0 +1,38 @@
+<category-menu></category-menu>
+<section class="container">
+        <div ng-controller="productDetailsController">
+            <ol class="breadcrumb">
+                <li><a href="\">Home</a></li>
+                <li><a ng-href="#/Category/{{ProductDetails.categoryID}}">{{ProductDetails.categoryName}}</a></li>
+            </ol>
+        <div class="cover-bg panel">
+            <div class="row">
+                <div class="col-sm-4"><img class="fullImage"  ng-src="{{ProductDetails.imageURL}}"></div>
+                <div class="col-sm-8">
+                    <h1 class="text-center">{{ProductDetails.name}}</h1>
+                    <p>
+                        {{ProductDetails.description}}
+                    </p>
+                    <div class="text-right">
+    <span class="priceDetail">
+        <strong>{{ProductDetails.price | currency:'€'}}</strong>
+    </span>
+                    </div>
+                    <div class="text-right backList">
+                        <button type="button" class="btn btn-info"><a href="/">Back to list</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default ">
+            <div class="panel-heading">Similar Products</div>
+            <div class="panel-body">
+                <div class="row similarProducts">
+                    <product-list category="ProductDetails.categoryID" showpaging="false" pagesize="3">
+
+                    </product-list>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

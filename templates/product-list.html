@@ -1,0 +1,29 @@
+<div class="cover-bg panel">
+    <div class="pagingDiv text-left">
+        <div ng-show="showpaging=='true'">
+            <strong>Displaying {{StartIndex}}-{{EndIndex}} out of {{AllProducts.length}}</strong>
+        </div>
+        <div>
+            <div class="sortDiv text-right" ng-show="showpaging=='true'">
+                <strong>Show</strong>
+                <select ng-options="size for size in sizes"
+                        ng-model="PageSize" ng-change="updatePageSize()"></select>
+                <strong>Sort</strong>
+                <select ng-options="sort.name for sort in sortModes"
+                        ng-model="SortMode" ng-change="SortProducts()"></select>
+            </div>
+            <div class="row">
+                <div class="col-md-4" ng-repeat="product in CurrentProducts">
+                    <product-thumb></product-thumb>
+                </div>
+            </div>
+            <div class="pagerShop text-center" ng-show="showpaging=='true'">
+                <ul class="pagination  pagination-lg">
+                    <li ng-hide="StartIndex == 1"><a ng-click="ShowPage(CurrentPage-1)">«</a></li>
+                    <li ng-repeat="no in pageNumbers"><a ng-click="ShowPage(no)">{{no}}</a></li>
+                    <li ng-hide="EndIndex == AllProducts.length"><a ng-click="ShowPage(CurrentPage +1)">»</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

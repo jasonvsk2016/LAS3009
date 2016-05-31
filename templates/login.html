@@ -1,0 +1,26 @@
+<div ng-controller="loginController">
+    <div class="row">
+        <div class="col-lg-15">
+            <div class="form-login">
+                <div class="alert alert-warning" ng-show="errorMessage">
+                    <strong>Warning!</strong> {{errorMessage}}
+                </div>
+                <h4>Welcome back.</h4>
+                <input ng-model="AuthParams.username" type="text" id="userName" class="form-control input-sm chat-input"
+                       placeholder="username"/>
+                </br>
+                <input ng-model="AuthParams.password" type="password" id="userPassword"
+                       class="form-control input-sm chat-input" placeholder="password"/>
+                </br>
+                <div class="wrapper">
+            <span class="group-btn">
+                 <button ng-click="DoLogin()" type="button" class="btn pull-right btn-default">Login</button>
+            </span>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

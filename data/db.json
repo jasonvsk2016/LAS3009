@@ -1,0 +1,202 @@
+{
+  "Categories": [
+    {
+      "name": "Hair",
+      "description": "We take pride to offer one of the best products in the haircare industry. Full range of professional hair care products, high-quality hair colouring and bleaching products. You can choose from proven and well-known brands like JOICO (product lines designed to meet different needs), CLINISCALP, MEDICEUTICALS and BOSLEY (comprehensive range of treatments for scalp disorders), SENSCIENCE (prestige hair care collection), BAIN-DE-TERRE ( hair care line that harnesses the power of nature to help enhance & restore hair health), ISO (function-specific solutions for individual needs) and last but not least EUGENE PERMA (range of sub-brands, dedicated to various aspects of hair color, care and styling).",
+      "id": 1
+    },
+    {
+      "name": "Skin Care",
+      "description": "BABOR’s skin care products are perfectly suited to the requirements of EVERY type of skin. Inspired by the latest advances and technologies in the spheres of research into skin aging, dermatology and genetics, BABOR’s research team has consistently developed and refined highly effective anti-aging product ranges. By adopting a holistic approach and integrating a wide range of different specialist departments, they have succeeded in further unraveling the mystery surrounding the causes of skin aging and ways of combating it. This combination of knowledge and holistic research is the key to the outstanding efficacy of their anti aging product ranges.",
+      "id": 2
+    },
+    {
+      "name": "Nails",
+      "description": "The nail make up from the BABOR FACE DESIGN COLLECTION creates well-cared-for and brilliant fingernails. High-tech formulations induce rapid drying time and durability.",
+      "id": 3
+    },
+    {
+      "name": "Makeup",
+      "description": "The BABOR FACE DESIGN COLLECTION is a range of make-up that unites colour and care and, thanks to the special application technique developed by Peter Schmidinger, the \"ARA-Principle\", simply highlights the beauty of every single woman.",
+      "id": 4
+    }
+  ],
+  "Products": [
+    {
+      "id": 1,
+      "name": "Green Meadow Shampoo",
+      "price": 12,
+      "description": "Luxuriously cleanse & restore optimal moisture balance of normal to oil hair with lush botanicals for an everyday clean, healthy shine. A lush, paraben-free, color-safe, shampoo infused with balancing extracts from lush green meadows plus precious argan & monoi oils that lavish hair in soft, sumptuous, silky perfection.",
+      "categoryID": 1,
+      "categoryName": "Hair",
+      "imageURL": "http://res.cloudinary.com/jasonvsk/image/upload/v1464642396/x9brfifqgyhrbn7w8hla.jpg"
+    },
+    {
+      "name": "Passion Flower Conditioner",
+      "description": "Deep moisturizer that protects color from fading and keeps hair soft, vibrant and shiny. Ideal for color-treated hair that’s normal to dry. A rich, paraben-free, color-protecting conditioner infused with fragrant passion flower plus precious argan & monoi oils that lavish hair in soft, sumptuous, silky perfection",
+      "price": 20,
+      "categoryID": 1,
+      "imageURL": "http://res.cloudinary.com/jasonvsk/image/upload/v1464642738/r0g25njssrqy20gfozct.jpg",
+      "id": 2
+    },
+    {
+      "name": "Balance Conditioner",
+      "description": "Milk Thistle Extract, Vitamin B5 and Natural Sugars nourish and maintain a healthy, optimal moisture balance. Leaves hair super manageable and free of build-up. Balance conditioner keeps hair shiny, and luminous.",
+      "categoryID": 1,
+      "price": 12,
+      "imageURL": "http://res.cloudinary.com/jasonvsk/image/upload/v1464643253/iwzoo5y0524qrejklawy.jpg",
+      "categoryName": "Hair",
+      "id": 3
+    },
+    {
+      "name": "Bi-Phase Moisturizer",
+      "description": "BABOR Calming Sensitive Bi-Phase Moisturizer\n\nCalming, moisturising 2-phase care for extremely sensitive skin.\n\n- Well tolerated by extremely sensitive skin.\n\n- Provides instant calmness to the skin.\n\n- Strengthens the skin's own lipid barrier.\n\n- Results in an immediately calm, relaxed and supple complexion.\n\nIntensive moisturising and lipid-replenishing product for very dry, sensitive skin. Hypoallergenic and free from colourants, fragrance, preservatives and emulsifying agents. This product can be used as a 24hr care or additional care for dry, very sensitive skin. The skin is visibly relaxed and immediately calmed.\n\nApplication: Shake well before use until the two parts have been mixed fully. Then pour the emulsion onto your hands and apply to face, neck and décolleté, morning and/or evening, after cleansing. Can be applied under day and/or night cream as an additional moisturiser.",
+      "price": 5,
+      "categoryID": 2,
+      "imageURL": "http://res.cloudinary.com/jasonvsk/image/upload/v1464671006/zv6jxxyfgtai2camb4nl.jpg",
+      "categoryName": "Skin Care",
+      "id": 4
+    },
+    {
+      "name": "Babor Men Shaving Foam",
+      "description": "BABOR Men Shaving Foam\n\nThe unique shaving experience - thorough and gentle.\n\n-\tCreamy shaving foam for a daily wet shave. \n-\tDelivers a close shave without redness or irritations.\n\nThis velvety shaving cream with the innovative TAUREC® active complex gives a unique shaving experience. It allows for the razor blade to glide very gently over the skin for a smooth, close shave.\n\nApplication: Spray a little in the palm of your hand and smooth over dampened shaving area. Shave in direction of hair growth. Rinse off excess with water.",
+      "price": 12,
+      "categoryID": 2,
+      "imageURL": "http://res.cloudinary.com/jasonvsk/image/upload/v1464671085/lxktbyrgxave17v4bccw.jpg",
+      "categoryName": "Skin Care",
+      "id": 5
+    },
+    {
+      "description": "Fresh and maintained all day long\n\n-\tAn alcohol-free, skin-friendly stick deodorant \n-\tRegulates perspiration and provides long-lasting protection against body odor\n\nAn alcohol-free deodorant stick with a fresh, masculine fragrance. Regulates perspiration and provides reliable protection against body odor, hour after hour. For the perfect start - and finish - to the day.",
+      "price": 5,
+      "categoryID": 2,
+      "name": "Fresh & Dry Deo Stick",
+      "imageURL": "http://res.cloudinary.com/jasonvsk/image/upload/v1464671155/khv9ady32siv0n8wzczb.jpg",
+      "categoryName": "Skin Care",
+      "id": 6
+    },
+    {
+      "name": "Vitalizing Hair And Body Shampoo",
+      "description": "BABOR Men Vitalizing Hair And Body Shampoo\n\n-\tA refreshing, vitalising shower gel that doubles as a shampoo. \n-\tFor a pleasantly fresh and vital start to the day.\n\nCleanses the skin gently and protects against dehydration. Also ideal for use as a daily shampoo.",
+      "price": 15.25,
+      "categoryID": 1,
+      "imageURL": "http://res.cloudinary.com/jasonvsk/image/upload/v1464671221/f0wtbtxm55wispex8ot1.jpg",
+      "categoryName": "Hair",
+      "id": 7
+    },
+    {
+      "name": "Nail Treatment Oil",
+      "description": "Quick drying, long lasting and combines high gloss and simple application in an innovative high-tech formula.",
+      "price": 5.5,
+      "categoryID": 3,
+      "imageURL": "http://res.cloudinary.com/jasonvsk/image/upload/v1464671309/lflf9rr4r5s4d820ym7v.jpg",
+      "categoryName": "Nails",
+      "id": 8
+    },
+    {
+      "name": "Advanced Nail White",
+      "description": "Innovative nail polish for a subtle french manicure look. A visual brightener gives blemished nails a whiter appearance with the visual aesthetic of a French manicure. This high-tech formula does not contain methylbenzene or formaldehyde.",
+      "price": 12.25,
+      "categoryID": 3,
+      "imageURL": "http://res.cloudinary.com/jasonvsk/image/upload/v1464671364/u6mggx2euhjw8meestva.jpg",
+      "categoryName": "Nails",
+      "id": 9
+    },
+    {
+      "name": "Smart All In One Polish",
+      "description": "BABOR Nail make-up Smart All in One Nourishing and strengthening multifunction polish with minerals Multifunctional treatment polish with minerals. Excellent for use as a base or finishing coat, colour sealer, nail strengthener, or to freshen up color shine. Made with strong minerals. Dries in seconds for sustainable wear through the toughest of challenges. Silicon, zinc, copper, iron and magnesium provide care for the nail, even on application. It does not contain toluol or formaldehyde.",
+      "categoryID": 3,
+      "price": 20,
+      "imageURL": "http://res.cloudinary.com/jasonvsk/image/upload/v1464673004/wgdq6mazfru6mdnozozo.jpg",
+      "categoryName": "Nails",
+      "id": 10
+    },
+    {
+      "description": "BABOR Nail make-up Nail Colour Remover Extra gentle, acetone free nail polish remover.",
+      "categoryID": 3,
+      "price": 6.5,
+      "name": "Nail Colour Remover",
+      "imageURL": "http://res.cloudinary.com/jasonvsk/image/upload/v1464671548/ymzybste6db2u10ycifa.jpg",
+      "categoryName": "Nails",
+      "id": 11
+    },
+    {
+      "name": "Shaping Cuticle & Nail Repair",
+      "description": "BABOR Shaping Cuticle & Nail Repair\n\nRich, intensive care for the nails and cuticles.\n\n-\tPromotes nail growth, thereby strengthening nails and cuticles. \n-\tNails remain elastic and do not chip or break.\n\nA very rich nail cream for the intensive care of the nails and cuticles. Natural active ingredients encourage nail growth and promote stronger nails. They also condition the cuticles and keep the nails elastic, making them less prone to breaking.\n\nApplication: Place a little cream on the lower part of the nail. Using circling movements, massage into the cuticle and into the nail, working upwards.",
+      "categoryID": 3,
+      "price": 20,
+      "imageURL": "http://res.cloudinary.com/jasonvsk/image/upload/v1464671632/gqfzgvjx1ntztlyhhc8j.jpg",
+      "categoryName": "Nails",
+      "id": 12
+    },
+    {
+      "name": "Super Soft Eye Shadow",
+      "description": "BABOR Eye make-up Super Soft Eye Shadow\n\nA silky, extra-fine mat eye shadow.\n\n-\tUltra soft texture \n-\tLatest fashionable colors\n\nThe innovative and long-lasting formula combines intensive color with excellent coverage.",
+      "price": 14.25,
+      "categoryID": 4,
+      "imageURL": "http://res.cloudinary.com/jasonvsk/image/upload/v1464671792/ym8n5k8gobbczt56vmte.jpg",
+      "categoryName": "Makeup",
+      "id": 13
+    },
+    {
+      "name": "Super Soft Duo Blush",
+      "description": "BABOR Face make-up Super Soft Duo Blush\n\nDuo colour powder blush with filler effect\n\n-\tProtects, treats and regenerates\n\nDual colour powder blush with a filler effect contains different sized powder particles that fill up lines, giving the face an even complexion. With the two colours, you can effectively brighten and add shadows. Protects, treats and regenerates thanks to its lifting complex consisting of sea fennel, lupines oil, vitamin E and the moisturizing amino acid complex L-PCA.",
+      "price": 25,
+      "categoryID": 4,
+      "imageURL": "http://res.cloudinary.com/jasonvsk/image/upload/v1464671882/jwshwf2doelumv0warv0.jpg",
+      "categoryName": "Makeup",
+      "id": 14
+    },
+    {
+      "imageURL": "http://res.cloudinary.com/jasonvsk/image/upload/v1464671950/ktlpij2kv3xvnixtcbg9.jpg",
+      "name": "Maxi Definition Eye Contour Pencil",
+      "description": "BABOR Eye make-up Maxi Definition Eye Contour Pencil\n\nA long-Lasting and waterproof eye pencil.\n\n-\tLong-lasting and waterproof \n-\tExcellent colour delivery and coverage \n-\tSupplies moisture and promotes skin regeneration \n-\tComes with a practical sponge smudger\n\nAn extremely long-lasting, waterproof eyeliner with excellent colour delivery and coverage. Ceramide III and pearl proteins supply moisture and promote skin regeneration. Comes with a practical sponge smudger.",
+      "price": 10,
+      "categoryID": 4,
+      "categoryName": "Makeup",
+      "id": 15
+    },
+    {
+      "name": "Kabuki Brush",
+      "description": "BABOR FDC Kabuki Brush for Mineral Powder Foundation\n\nA compact, soft full brush for loose mineral foundation.\n\nKabuki Brush for Mineral Powder Foundation makes applying mineral foundation seamless and flawless, with the full rounded top. Pigment easily adheres to the dense, gentle bristles, giving you control over your coverage. The chic, short golden handle takes little effort to handle, so you can achieve a beautiful buff.",
+      "categoryID": 4,
+      "price": 6,
+      "imageURL": "http://res.cloudinary.com/jasonvsk/image/upload/v1464672054/l4si0n8mggrz11lo6zrg.jpg",
+      "categoryName": "Makeup",
+      "id": 16
+    },
+    {
+      "name": "Ultra Shine Lip Gloss",
+      "description": "BABOR Ultra Shine Lip Gloss\n\nAdds volume and a brilliant shine to lips.\n\nUltra brilliant lip gloss with light reflections protect sensitive lips against environmental stress. This non-sticky lip gloss nourishes and regenerates for fabulous looking lips.",
+      "price": 8.26,
+      "categoryID": 4,
+      "imageURL": "http://res.cloudinary.com/jasonvsk/image/upload/v1464672126/dqlz40bnk56yspqkwavc.jpg",
+      "categoryName": "Makeup",
+      "id": 17
+    },
+    {
+      "imageURL": "http://res.cloudinary.com/jasonvsk/image/upload/v1464672162/vxoopufmbudoffo55oko.jpg",
+      "name": "Maxi Volume Mascara",
+      "description": "BABOR Eye make-up Maxi Volume Mascara\n\n3D mascara for length, curl and volume\n\n-\tPerfectly forming mascara with a 3D-volume-effect. \n-\tInnovative elastomeric brush provides volume and perfect lash definition. \n-\tCombs and separates lashes so that eyes appear bigger \n-\tBlack - water-resistant\n\nPerfectly forming mascara with a 3D-volume-effect. Innovative elastomeric brush provides more volume and guarantees perfect lash definition. Mascara combs and separates the eyelash from the beginnings to the end so that the eyes appear bigger. Fineness and flexibility of the brush allow a precise usage for an extraordinary length and a perfect in form verve. Provitamin B5 provides moisture while sweet almond extract restructures and covers the eyelashes protectively.",
+      "price": 14.5,
+      "categoryID": 4,
+      "categoryName": "Makeup",
+      "id": 18
+    },
+    {
+      "name": "Joico Super Shine 100ml",
+      "description": "Joico Style & Finish Super Shine Glossing Polish\n\nSmoothens and polishes all hair types, imparting brilliant, color enhancing shine. Can also be used to spot detail as a finishing touch for separation and definition. Gives UV-protection.\n\nWork best when:\n\n-\tUsing small amounts on fingertips to spot-apply on dry hair\n\n-\tApply before blow-drying to create maximum shine",
+      "price": 12.5,
+      "categoryID": 1,
+      "imageURL": "http://res.cloudinary.com/jasonvsk/image/upload/v1464673498/blonn0f1hlnehxatnpyd.jpg",
+      "categoryName": "Hair",
+      "id": 19
+    }
+  ],
+  "Users": [
+    {
+      "username": "jason",
+      "password": "1234"
+    }
+  ]
+}

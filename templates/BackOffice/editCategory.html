@@ -1,0 +1,18 @@
+<form>
+    <div class="alert alert-warning" ng-show="errorMessage">
+        <strong>Warning!</strong> {{errorMessage}}
+    </div>
+    <fieldset class="form-group">
+        <label for="formName">Name</label>
+        <input type="text" class="form-control" id="formName" placeholder="Category Name"
+               ng-model="editRecord.name">
+    </fieldset>
+    <fieldset class="form-group">
+        <label for="formDescription">Name</label>
+       <textarea type="text" class="form-control" id="formDescription" placeholder="Category Description"
+                 ng-model="editRecord.description">
+           </textarea>
+    </fieldset>
+</form>
+<button ng-click="save()">Save</button>
+<button ng-click="cancel()">Cancel</button>

@@ -1,0 +1,46 @@
+.thumbnail
+{
+    max-width:300px;
+    max-height:300px;
+}
+
+.price
+{
+   font-weight:400;
+    font-size:30px;
+}
+
+.pagerShop .pagination{
+    margin: 0 auto;
+}
+
+.fullImage{
+    width: 100%;
+    margin: auto;
+   vertical-align: middle;
+}
+
+.priceDetail{
+    font-size:30px;
+}
+
+.backList{
+    margin-top:50px;
+}
+
+.similarProducts .thumbnail
+{
+    width:50%;
+    height:50%;
+    margin:auto;
+}
+
+.productThumbAdmin
+{
+    max-height:100px;
+    max-width: 400px;
+}
+.productThumbList{
+    max-height:100px;
+    max-width: 100px;
+}
