@@ -1,4 +1,4 @@
-    var sortMode = {
+    var eSortMode = {
         nameAsc: 1,
         nameDesc: 2,
         priceAsc: 3,

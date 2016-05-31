@@ -1,23 +1,12 @@
-app.controller('menuController', ['$http', '$scope', 'mySharedService', 'ngDialog', function ($http, $scope, sharedService, ngDialog) {
-    $http({
-        method: 'GET',
-        url: root + '/Categories',
-        //data: {},
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }).then(
-        function (response) {
-            $scope.Categories = response.data;
-        },
-        function (errorResponse) {
-            // Do something
-        }
-    );
+app.controller('menuController', ['$http', '$scope', 'productService', 'ngDialog', function ($http, $scope, productService, ngDialog) {
+
+    productService.GetCategories().then(function (categories) {
+        $scope.Categories = categories;
+    });
 
     $scope.SearchPhrase = function () {
         if ($scope.searchPhrase) {
-            sharedService.prepForBroadcast($scope.searchPhrase);
+            productService.prepForBroadcast($scope.searchPhrase);
         }
 
     }
@@ -28,8 +17,10 @@ app.controller('menuController', ['$http', '$scope', 'mySharedService', 'ngDialo
 
 }]);
 
-app.controller('productController', ['$http', '$scope', 'mySharedService', function ($http, $scope, mySharedService) {
+app.controller('productController', ['$http', '$scope', 'productService', function ($http, $scope, productService) {
+
     $scope.sizes = [6, 12, 24];
+
     if (!$scope.pagesize) {
         $scope.pagesize = $scope.sizes[0];
     }
@@ -37,11 +28,22 @@ app.controller('productController', ['$http', '$scope', 'mySharedService', funct
     $scope.searchPhrase = null;
     $scope.AllProducts = [];
 
+    $scope.sortModes = productService.GetSortModes();
+    $scope.SortMode = $scope.sortModes[0];
 
-    mySharedService.GetProducts($scope.category).then(function (products) {
+    productService.GetProducts($scope.category).then(function (products) {
         $scope.AllProducts = products;
+        if ($scope.showpaging=='false')
+        {
+            $scope.AllProducts = _.sample(products,3);
+        }
         showFirstPage();
     });
+
+    $scope.SortProducts = function () {
+        $scope.AllProducts = productService.SortProducts($scope.SortMode);
+        showFirstPage();
+    }
 
     $scope.updatePageSize = function () {
         showFirstPage(this);
@@ -86,25 +88,10 @@ app.controller('productController', ['$http', '$scope', 'mySharedService', funct
         }
     }
 
-    $scope.$on('handleBroadcast', function () {
-
-        $scope.AllProducts = mySharedService.AllProductsInDB.filter(function (product) {
-            return product.Name.search(mySharedService.message) > -1;
-        });
-        $scope.SortProducts();
-    });
-
-    $scope.$on('handleBroadcastCategory', function () {
-        $scope.CategoryChosen = mySharedService.CategoryID;
-        if ($scope.AllProductsInDB) {
-            $scope.SortProducts();
-        }
-    });
-
 }]);
 
-app.controller('productDetailsController', ['$http', '$scope', '$routeParams', 'mySharedService',
-    function ($http, $scope, $routeParams, sharedService) {
+app.controller('productDetailsController', ['$http', '$scope', '$routeParams', 'productService',
+    function ($http, $scope, $routeParams, productService) {
 
         $http({
             method: 'GET',
@@ -116,15 +103,6 @@ app.controller('productDetailsController', ['$http', '$scope', '$routeParams', '
         }).then(
             function (response) {
                 $scope.ProductDetails = response.data;
-
-                //we get the similar items by category
-                if ($scope.AllProductsInDB) {
-                    $scope.SimilarItems = $scope.AllProductsInDB.filter(function (product) {
-                        return product.CategoryID == $scope.ProductDetails.CategoryID;
-                    });
-
-                }
-
             },
             function (errorResponse) {
                 // Do something
@@ -133,15 +111,18 @@ app.controller('productDetailsController', ['$http', '$scope', '$routeParams', '
 
     }]
 );
-app.controller('categoryController', ['$http', '$scope', '$routeParams', 'mySharedService',
-    function ($http, $scope, $routeParams, sharedService) {
+app.controller('categoryController', ['$http', '$scope', '$routeParams', 'productService',
+    function ($http, $scope, $routeParams, productService) {
 
         $scope.category = $routeParams.param;
+        productService.GetCategoryName($scope.category).then(function (name) {
+            $scope.categoryName = name;
+        });
         $scope.showPaging = 1;
     }]);
 
-app.controller('loginController', ['$window', '$http', '$scope', '$routeParams', 'mySharedService', 'AuthenticationService',
-    function ($window, $http, $scope, $routeParams, sharedService, AuthenticationService) {
+app.controller('loginController', ['$window', '$http', '$scope', '$routeParams', 'productService', 'AuthenticationService',
+    function ($window, $http, $scope, $routeParams, productService, AuthenticationService) {
 
         $scope.AuthParams = {};
 

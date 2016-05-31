@@ -7,7 +7,7 @@
             <div class="sortDiv text-right" ng-show="showpaging=='true'">
                 <strong>Show</strong>
                 <select ng-options="size for size in sizes"
-                        ng-model="PageSize" ng-change="updatePageSize()"></select>
+                        ng-model="pagesize" ng-change="updatePageSize()"></select>
                 <strong>Sort</strong>
                 <select ng-options="sort.name for sort in sortModes"
                         ng-model="SortMode" ng-change="SortProducts()"></select>
@@ -20,7 +20,7 @@
             <div class="pagerShop text-center" ng-show="showpaging=='true'">
                 <ul class="pagination  pagination-lg">
                     <li ng-hide="StartIndex == 1"><a ng-click="ShowPage(CurrentPage-1)">«</a></li>
-                    <li ng-repeat="no in pageNumbers"><a ng-click="ShowPage(no)">{{no}}</a></li>
+                    <li ng-class="{'active' : no==CurrentPage}" ng-repeat="no in pageNumbers"><a ng-click="ShowPage(no)">{{no}}</a></li>
                     <li ng-hide="EndIndex == AllProducts.length"><a ng-click="ShowPage(CurrentPage +1)">»</a></li>
                 </ul>
             </div>

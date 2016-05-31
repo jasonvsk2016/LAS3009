@@ -1,17 +1,57 @@
+app.service('productService', ['$http', '$rootScope', '$q', function ($http, $rootScope, $q) {
 
-app.service('mySharedService', ['$http', '$rootScope', '$q', function ($http, $rootScope, $q) {
     var self = this;
+
     this.message = '';
+
     this.CategoryChosen = '';
-    this.sortModes = [{id: sortMode.nameAsc, name: 'Name [A -> Z]'},
-        {id: sortMode.nameDesc, name: 'Name [Z -> A]'},
-        {id: sortMode.priceAsc, name: 'Price Ascending'},
-        {id: sortMode.priceDesc, name: 'Price Descending'}];
+
+    this.sortModes = [{id: eSortMode.nameAsc, name: 'Name [A -> Z]'},
+        {id: eSortMode.nameDesc, name: 'Name [Z -> A]'},
+        {id: eSortMode.priceAsc, name: 'Price Ascending'},
+        {id: eSortMode.priceDesc, name: 'Price Descending'}];
     this.SortMode = this.sortModes[0];
     this.products = [];
 
-    this.sortBy = function (condition) {
-        //return this.products.SortedBy...
+    this.GetCategories = function () {
+        var defer = $q.defer();
+        $http({
+            method: 'GET',
+            url: root + '/Categories',
+            //data: {},
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(
+            function (response) {
+                self.Categories = response.data;
+                defer.resolve(self.Categories);
+            },
+            function (errorResponse) {
+                defer.reject('oops');
+            }
+        );
+        return defer.promise;
+    };
+
+    this.GetCategoryName = function (categoryID) {
+        var defer = $q.defer();
+        if (self.Categories) {
+            defer.resolve(_.find(self.Categories, function (category) {
+                return category.id == categoryID
+            }).name);
+        } else {
+            self.GetCategories().then(function (categories) {
+                defer.resolve(_.find(self.Categories, function (category) {
+                    return category.id == categoryID
+                }).name);
+            });
+        }
+        return defer.promise;
+    }
+
+    this.GetSortModes = function () {
+        return this.sortModes;
     }
 
     this.GetProducts = function (category) {
@@ -34,10 +74,10 @@ app.service('mySharedService', ['$http', '$rootScope', '$q', function ($http, $r
                     self.products = response.data;
                     //Loop and push instead
                     self.AllProductsInDB = self.products.slice(0, self.products.length);
-                    self.SortProducts();
+                    self.SortProducts(self.SortMode);
                     if (category) {
                         defer.resolve(self.AllProductsInDB.filter(function (product) {
-                            return product.CategoryID == category;
+                            return product.categoryID == category;
                         }));
                     } else {
                         defer.resolve(self.products);
@@ -51,62 +91,35 @@ app.service('mySharedService', ['$http', '$rootScope', '$q', function ($http, $r
         return defer.promise;
     }
 
-    this.SortProducts = function () {
+    this.SortProducts = function (sortMode) {
+        this.SortMode = sortMode;
         if (this.CategoryChosen) {
             this.products = this.AllProductsInDB.filter(function (product) {
                 return product.CategoryID == self.CategoryChosen;
             });
         }
-        switch (this.SortMode.id) {
-            case  sortMode.nameAsc :
+        switch (sortMode.id) {
+            case  eSortMode.nameAsc :
             {
-                this.products.sort(function (a, b) {
-                    return (a.Name > b.Name) ? 1 : ((b.Name > a.Name) ? -1 : 0);
-                });
+                this.products = _.sortBy(this.products, 'name');
             }
                 break;
-            case    sortMode.nameDesc :
+            case    eSortMode.nameDesc :
             {
-                this.products.sort(function (a, b) {
-                    return (b.Name > a.Name) ? 1 : ((a.Name > b.Name) ? -1 : 0);
-                });
+                this.products = _.sortBy(this.products, 'name').reverse();
             }
                 break;
-            case   sortMode.priceAsc :
+            case   eSortMode.priceAsc :
             {
-                this.products.sort(function (a, b) {
-                    return (a.Price > b.Price) ? 1 : ((b.Price > a.Price) ? -1 : 0);
-                });
+                this.products = _.sortBy(this.products, 'price');
             }
                 break;
-            case  sortMode.priceDesc :
+            case  eSortMode.priceDesc :
             {
-                this.products.sort(function (a, b) {
-                    return (b.Price > a.Price) ? 1 : ((a.Price > b.Price) ? -1 : 0);
-                });
-                ;
+                this.products = _.sortBy(this.products, 'price').reverse();
             }
                 break;
         }
-        //  showFirstPage();
+        return this.products;
     };
-    /*
-     sharedService.prepForBroadcast = function(msg) {
-     this.message = msg;
-     this.broadcastItem();
-     };
-
-     sharedService.broadcastItem = function() {
-     $rootScope.$broadcast('handleBroadcast');
-     };
-
-     sharedService.prepForBroadcastCategory = function(categoryID) {
-     this.CategoryID = categoryID;
-     this.broadcastCategory();
-     };
-
-     sharedService.broadcastCategory = function() {
-     $rootScope.$broadcast('handleBroadcastCategory');
-     };
-     */
 }]);
