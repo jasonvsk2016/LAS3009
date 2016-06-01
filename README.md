@@ -16,7 +16,7 @@ All data is stored in data/db.json and json-server is used to expose the data vi
 
 + npm install
 
-+ bower install
++ bower install (when it asks for version of angular, please use v1.4.11)
 
 
 + grunt serve
