@@ -24,7 +24,7 @@ All data is stored in data/db.json and json-server is used to expose the data vi
 
 ### Technologies Used
 
-+ AngularJS - JavaScript MVW Framework
++ AngularJS v1.4.11 - JavaScript MVW Framework
 + Json-server - REST API for json database
 + cloudinary_ng - Image hosting
 + bootstrap - HTML and CSS framework
