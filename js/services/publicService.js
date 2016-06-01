@@ -34,7 +34,7 @@ app.service('productService', ['$http', '$rootScope', '$q', function ($http, $ro
         return defer.promise;
     };
 
-    this.GetCategoryName = function (categoryID) {
+    this.GetCategory = function (categoryID) {
         var defer = $q.defer();
         if (self.Categories) {
             defer.resolve(_.find(self.Categories, function (category) {
@@ -44,7 +44,7 @@ app.service('productService', ['$http', '$rootScope', '$q', function ($http, $ro
             self.GetCategories().then(function (categories) {
                 defer.resolve(_.find(self.Categories, function (category) {
                     return category.id == categoryID
-                }).name);
+                }));
             });
         }
         return defer.promise;
@@ -55,6 +55,7 @@ app.service('productService', ['$http', '$rootScope', '$q', function ($http, $ro
     }
 
     this.GetProducts = function (category) {
+        this.searchFilter = null;
         var defer = $q.defer();
         if (category && self.AllProductsInDB) {
             defer.resolve(self.AllProductsInDB.filter(function (product) {
@@ -64,7 +65,6 @@ app.service('productService', ['$http', '$rootScope', '$q', function ($http, $ro
             $http({
                 method: 'GET',
                 url: root + '/Products',
-                //data: {},
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -72,7 +72,6 @@ app.service('productService', ['$http', '$rootScope', '$q', function ($http, $ro
                 function (response) {
 
                     self.products = response.data;
-                    //Loop and push instead
                     self.AllProductsInDB = self.products.slice(0, self.products.length);
                     self.SortProducts(self.SortMode);
                     if (category) {
@@ -93,11 +92,14 @@ app.service('productService', ['$http', '$rootScope', '$q', function ($http, $ro
 
     this.SortProducts = function (sortMode) {
         this.SortMode = sortMode;
-        if (this.CategoryChosen) {
+        if (this.CategoryChosen || this.searchFilter) {
             this.products = this.AllProductsInDB.filter(function (product) {
-                return product.CategoryID == self.CategoryChosen;
+
+                return (!self.CategoryChosen  || product.categoryID == self.CategoryChosen) &&
+                    (!self.searchFilter || ~product.name.toLowerCase().indexOf(self.searchFilter) || ~product.description.toLowerCase().indexOf(self.searchFilter));
             });
         }
+
         switch (sortMode.id) {
             case  eSortMode.nameAsc :
             {
@@ -121,5 +123,23 @@ app.service('productService', ['$http', '$rootScope', '$q', function ($http, $ro
                 break;
         }
         return this.products;
+    };
+
+    this.requestSearchItem = function(searchFilter) {
+        this.searchFilter = searchFilter;
+        this.broadcastSearchFilter();
+    };
+
+    this.broadcastSearchFilter = function() {
+        $rootScope.$broadcast('handleSearchFilterBroadcast');
+    };
+
+    this.requestCategoryFilter = function(categoryID) {
+        this.CategoryChosen = categoryID;
+        this.broadcastCategoryFilter();
+    };
+
+    this.broadcastCategoryFilter = function() {
+        $rootScope.$broadcast('handleCategoryBroadcast');
     };
 }]);

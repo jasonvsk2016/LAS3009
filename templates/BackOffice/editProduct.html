@@ -15,10 +15,10 @@
     </fieldset>
     <fieldset class="form-group">
         <label class="col-xs-2" for="formPrice">Price</label>
-        <input class="col-xs-2" type="text" class="form-control" id="formPrice" placeholder="Another input"
+        <input class="col-xs-3" type="text" class="form-control" id="formPrice" placeholder="Price"
                ng-model="editRecord.price">
         <label class="col-xs-3" for="categorySelect">Category</label>
-        <select class="col-xs-5" id="categorySelect" ng-options="category.id as category.name for category in Categories"
+        <select class="col-xs-4" id="categorySelect" ng-options="category.id as category.name for category in Categories"
                 ng-model="editRecord.categoryID"></select>
     </fieldset>
     <div id="direct_upload"
@@ -31,8 +31,8 @@
                 <label>Image:</label>
                 <div class="form_controls">
                     <div class="upload_button_holder">
-                        <div href="#" class="upload_button" ngf-select="uploadFiles($files)" multiple title="upload"
-                             resetOnClick="true">Upload
+                        <div href="#" class="btn-primary" ngf-select="uploadFiles($files)" multiple title="upload"
+                             resetOnClick="true">Upload (drag image here or click upload)
                         </div>
                     </div>
 

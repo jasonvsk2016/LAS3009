@@ -191,12 +191,29 @@
       "imageURL": "http://res.cloudinary.com/jasonvsk/image/upload/v1464673498/blonn0f1hlnehxatnpyd.jpg",
       "categoryName": "Hair",
       "id": 19
+    },
+    {
+      "price": 10.84,
+      "categoryID": 1,
+      "name": "Blush Care Mousse Silver",
+      "description": "EUGENE PERMA Blush Care Radiance Enhancing Brightening Mousse\n\nGently and neutralize yellowing in bleached, highlighted and white hair. Provides body and hold. Revitalizes and protects the hair.\n\n-\tVitamin B6 to revitalize the hair. \n-\tFilm-forming resins to provide body and hold. \n-\tUV filter\n\nTips and tricks: Use on bleached hair or on highlighted hair with unwanted yellow tones. Helps maintain ash glazes. Color will not veer to mauve.",
+      "imageURL": "http://res.cloudinary.com/jasonvsk/image/upload/v1464808757/bvqqmmfprqwk8hvkqsod.jpg",
+      "categoryName": "Hair",
+      "id": 20
     }
   ],
   "Users": [
     {
       "username": "jason",
       "password": "1234"
+    },
+    {
+      "username": "mark",
+      "password": "1234"
+    },
+    {
+      "username": "david",
+      "password": "9876"
     }
   ]
 }

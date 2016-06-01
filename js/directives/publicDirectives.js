@@ -1,7 +1,7 @@
 app.directive('productList', function () {
     return {
         restrict: 'E',
-        templateUrl: 'templates\\product-list.html',
+        templateUrl: 'templates\\public\\product-list.html',
         controller: 'productController',
         scope: {
             category: '=',
@@ -14,7 +14,7 @@ app.directive('productList', function () {
 app.directive('categoryMenu', function () {
     return {
         restrict: 'E',
-        templateUrl: 'templates\\menu.html',
+        templateUrl: 'templates\\public\\menu.html',
         controller: 'menuController',
     }
 });
@@ -22,6 +22,6 @@ app.directive('categoryMenu', function () {
 app.directive('productThumb', function () {
     return {
         restrict: 'E',
-        templateUrl: 'templates\\product-thumb.html'
+        templateUrl: 'templates\\public\\product-thumb.html'
     }
 });

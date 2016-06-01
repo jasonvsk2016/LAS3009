@@ -1,4 +1,6 @@
-app.controller('menuController', ['$http', '$scope', 'productService', 'ngDialog', function ($http, $scope, productService, ngDialog) {
+app.controller('menuController', ['$http', '$scope', 'productService', 'ngDialog','$window', function ($http, $scope, productService, ngDialog,$window) {
+
+    $scope.ShowSearch = $window.location.href.indexOf("ProductDetails") == -1;
 
     productService.GetCategories().then(function (categories) {
         $scope.Categories = categories;
@@ -6,13 +8,14 @@ app.controller('menuController', ['$http', '$scope', 'productService', 'ngDialog
 
     $scope.SearchPhrase = function () {
         if ($scope.searchPhrase) {
-            productService.prepForBroadcast($scope.searchPhrase);
+
+            productService.requestSearchItem($scope.searchPhrase);
         }
 
     }
 
     $scope.ShowLogin = function () {
-        ngDialog.open({template: 'templates/login.html', className: 'ngdialog-theme-default', scope: $scope});
+        ngDialog.open({template: 'templates/public/login.html', className: 'ngdialog-theme-default', scope: $scope});
     }
 
 }]);
@@ -88,6 +91,13 @@ app.controller('productController', ['$http', '$scope', 'productService', functi
         }
     }
 
+    $scope.$on('handleSearchFilterBroadcast', function () {
+        $scope.SortProducts();
+    });
+
+    $scope.$on('handleCategoryBroadcast', function () {
+        $scope.SortProducts();
+    });
 }]);
 
 app.controller('productDetailsController', ['$http', '$scope', '$routeParams', 'productService',
@@ -103,6 +113,7 @@ app.controller('productDetailsController', ['$http', '$scope', '$routeParams', '
         }).then(
             function (response) {
                 $scope.ProductDetails = response.data;
+                productService.requestCategoryFilter($scope.ProductDetails.categoryID);
             },
             function (errorResponse) {
                 // Do something
@@ -115,9 +126,11 @@ app.controller('categoryController', ['$http', '$scope', '$routeParams', 'produc
     function ($http, $scope, $routeParams, productService) {
 
         $scope.category = $routeParams.param;
-        productService.GetCategoryName($scope.category).then(function (name) {
+        var categoryFull = productService.GetCategory($scope.category).then(function (name) {
             $scope.categoryName = name;
         });
+        $scope.categoryName = categoryFull.name;
+        $scope.categoryDescription = categoryFull.description;
         $scope.showPaging = 1;
     }]);
 

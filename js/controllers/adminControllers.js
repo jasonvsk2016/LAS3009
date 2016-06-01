@@ -57,7 +57,11 @@ app.controller('adminCategoryController', ['$http', '$scope', 'ngDialog', functi
             }).then(
                 function (response) {
                     //remove old element
-                    _.reject($scope.Categories, function(category){ return category.id === $scope.editRecord.id; });
+                    $scope.Categories = _.reject($scope.Categories, function(category){ return category.id === $scope.editRecord.id; });
+                    if (!$scope.editRecord.id)
+                    {
+                        $scope.editRecord.id = _.max($scope.Categories, function(category){ return category.id }).id + 1;
+                    }
                     $scope.Categories.push($scope.editRecord);
                     ngDialog.closeAll();
                 },
@@ -178,7 +182,11 @@ app.controller('adminProductController', ['$http', '$scope', 'ngDialog', 'adminS
                     }
                 }).then(
                     function (response) {
-                        _.reject($scope.Products, function(product){ return product.id === $scope.editRecord.id; });
+                        if (!$scope.editRecord.id)
+                        {
+                            $scope.editRecord.id = _.max($scope.Products, function(product){ return product.id }).id + 1;
+                        }
+                        $scope.Products = _.reject($scope.Products, function(product){ return product.id === $scope.editRecord.id; });
                         $scope.Products.push($scope.editRecord);
                         ngDialog.closeAll();
                     },

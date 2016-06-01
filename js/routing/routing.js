@@ -1,16 +1,16 @@
 app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider.when('/', {
-        templateUrl: 'templates\\HomePage.html'
+        templateUrl: 'templates\\public\\HomePage.html'
     }).when('/ProductDetails/:param', {
         controller: 'productDetailsController',
-        templateUrl: 'templates\\ProductDetails.html'
+        templateUrl: 'templates\\public\\ProductDetails.html'
     }).when('/Category/:param', {
         controller: 'categoryController',
-        templateUrl: 'templates\\Category.html'
+        templateUrl: 'templates\\public\\Category.html'
     }).when('/Admin', {
         templateUrl: 'templates\\BackOffice\\Admin.html',
     }).when('/Login', {
-        templateUrl: 'templates\\Login.html',
+        templateUrl: 'templates\\public\\Login.html',
     }).otherwise({redirectTo: '/'});
 
     $locationProvider.html5Mode({enabled: true});
