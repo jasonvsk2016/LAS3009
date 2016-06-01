@@ -9,6 +9,7 @@
     "grunt-contrib-connect": "^1.0.0",
     "grunt-contrib-watch": "^0.6.1",
     "serve-static": "^1.10.2",
-    "numeral": "^1.5.3"
+    "numeral": "^1.5.3",
+    "ng-dialog": "^0.6.1"
   }
 }
