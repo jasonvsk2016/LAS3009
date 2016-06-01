@@ -21,3 +21,13 @@ All data is stored in data/db.json and json-server is used to expose the data vi
 
 + grunt serve
 + json-server data\db.json
+
+### Technologies Used
+
++ AngularJS - JavaScript MVW Framework
++ Json-server - REST API for json database
++ cloudinary_ng - Image hosting
++ bootstrap - HTML and CSS framework
++ gruntjs - used grunt connect as web server
++ underscorejs - javascript utility functions, used for arrays
++ connect-modrewrite - Rewrite rules for grunt connect
