@@ -16,7 +16,7 @@
   "dependencies": {
     "bootstrap": "^3.3.6",
     "ng-file-upload": "^11.0.2",
-    "angular": "1.4.x",
+    "angular": "1.4.11",
     "angular-route": "1.4.x",
     "angular-resource": "1.4.x",
     "angular-animate": "1.4.x",
