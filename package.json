@@ -1,4 +1,8 @@
 {
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jasonvsk2016/repository.git"
+  },
   "devDependencies": {
     "connect-modrewrite": "^0.9.0",
     "grunt": "^0.4.5",
